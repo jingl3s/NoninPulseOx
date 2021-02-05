@@ -43,4 +43,44 @@
 			<version>2.6.1</version>
 		</dependency>
 	</dependencies>
+
+	<build>			
+	<plugins>
+	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5.2</version>
+				<executions>
+					<execution>
+						<id>jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<!-- Filename change if needed to have only one package with always 
+								the same name -->
+							<finalName>${project.artifactId}</finalName>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+
+						</configuration>
+					</execution>
+					<!-- <execution>
+						<id>dist</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals> -->
+						<!-- <configuration>
+							<descriptors>
+								<descriptor>src/main/assembly/assembly.xml</descriptor>
+							</descriptors>
+						</configuration> -->
+					<!-- </execution> -->
+				</executions>
+			</plugin>
+			</plugins>
+</build>
 </project>
